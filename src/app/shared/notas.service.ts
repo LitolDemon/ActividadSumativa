@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Nota } from './nota.model';
+import {HttpClient} from "@angular/common/http"
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,8 @@ export class NotasService {
   enProceso:Nota[]= new Array<Nota>();
   cerradas:Nota[]= new Array<Nota>();
 
-  constructor() { }
+  url="http://localhost/";
+  constructor(private http:HttpClient) { }
   
   getAll(){
     return this.notas;
@@ -83,5 +86,14 @@ export class NotasService {
   eliminarCerradas(id:number){
     this.cerradas.splice(id,1);
   }
+
+  consultarNotas():Observable<any>{
+    return this.http.get(`${this.url}inicio.php`);
+  }
+
+  guardarDatos(lista:Array<Nota>):Observable<any>{
+    return this.http.post(`${this.url}guardar.php`, JSON.stringify(lista));
+  } 
+
 
 }
