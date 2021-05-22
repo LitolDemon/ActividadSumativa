@@ -1,0 +1,61 @@
+
+#titulo1, #titulo2{
+    color : #ffffff;
+    font-size:34px;
+    text-align: left;
+    font: oblique bold 50%;
+    margin-bottom: 24px;
+    margin-left: 25%;
+}
+#titulo2{
+    font-size: 16px;
+}
+
+table, tr, td{
+    width: 80%;
+    align-items: center;
+    text-align: center; 
+    vertical-align: middle;
+    margin-left:35%;
+    
+}
+.row{
+    margin-left: 10%;
+}
+
+#columnas{
+    padding: 1%;
+    margin: 1%;
+    border: 1px solid black;
+    text-align: center;
+}
+#subtitulos{
+    text-align: center;
+    padding: 1%;
+    margin: 1%;
+    color:#000000;
+    font-size:larger;
+    font: oblique bold 120%;
+}
+#cajaTexto{
+    margin-top:5%;
+    margin-right:5%;
+    margin-bottom: 5%;
+}
+#footer{
+    text-align: center;
+}
+
+#adicionar{
+    margin-left: 20%;
+}
+
+#iniciado{
+    background-color : #0AB734;
+}
+#proceso{
+    background-color : #BEC30F;
+}
+#terminado{
+    background-color:#C00B0B;
+}

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http"
 import {Observable} from "rxjs";
-import {Nota} from "./shared/nota.model"
+import { Nota } from "./inicio/nota";
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +26,6 @@ export class ServicioNotaService {
   eliminarNota(lista:Array<Nota>):Observable<any>{
     return this.http.post(`${this.url}eliminar.php`, JSON.stringify(lista));
   }
+
   
 }

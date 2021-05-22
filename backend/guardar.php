@@ -4,26 +4,24 @@
 
     $json=file_get_contents('php://input'); 
     $str = trim($json,"[]");
-    $info = json_decode($str,true);
-    
+    $dato = json_decode($str,true);
     $aux = json_decode($json,true);
-    //var_dump($info);
     $estado = $aux[0]["estado"];
     echo $estado;
 
     switch($estado){
         case 1:
-            $jsonData=file_get_contents("iniciado.json");
+            $jsonData=file_get_contents("abierto.json");
             if(empty($jsonData)==1){
-                $archivo = fopen("iniciado.json", "w");
+                $archivo = fopen("abierto.json", "w");
                 fwrite($archivo,$json);
                 break;
             }else{
                 $arrayData=json_decode($jsonData);
-                array_push($arrayData,$info);
+                array_push($arrayData,$dato);
                 $jsonData = json_encode($arrayData);
               
-                $archivo = fopen("iniciado.json", "w");
+                $archivo = fopen("abierto.json", "w");
                 fwrite($archivo,$jsonData); 
                 break;
             }
@@ -36,7 +34,7 @@
                 break;
             }else{
                 $arrayData=json_decode($jsonData);
-                array_push($arrayData,$info);
+                array_push($arrayData,$dato);
                 $jsonData = json_encode($arrayData);
 
                 $archivo = fopen("enProceso.json", "w");
@@ -46,17 +44,17 @@
             
            
         case 3:
-            $jsonData=file_get_contents("terminado.json");
+            $jsonData=file_get_contents("cerrado.json");
             if(empty($jsonData)==1){
-                $archivo = fopen("terminado.json","w");
+                $archivo = fopen("cerrado.json","w");
                 fwrite($archivo,$json);
                 break;
             }else{
                 $arrayData=json_decode($jsonData);
-                array_push($arrayData,$info);
+                array_push($arrayData,$dato);
                 $jsonData = json_encode($arrayData);
 
-                $archivo = fopen("terminado.json", "w");
+                $archivo = fopen("cerrado.json", "w");
                 fwrite($archivo,$jsonData); 
                 break;
             }
